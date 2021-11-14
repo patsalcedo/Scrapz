@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
-import 'package:scrapz/match_making_page.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/provider/card_provider.dart';
 import 'themes/scrapz_theme_cl.dart';
@@ -38,9 +37,5 @@ ThemeData _buildScrapzTheme() {
       secondary: scrapzYellow,
       error: scrapzErrorRed,
     ),
-    // textTheme: _buildScrapzTextTheme(base.textTheme),
-    // textSelectionTheme: const TextSelectionThemeData(
-    //   selectionColor: scrapzTeal,
-    // ),
   );
 }

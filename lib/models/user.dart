@@ -1,6 +1,6 @@
 class User {
   String name;
-  String profileIamge;
+  String profileImage;
 
-  User(this.name, this.profileIamge);
+  User(this.name, this.profileImage);
 }

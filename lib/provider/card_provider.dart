@@ -6,14 +6,12 @@ import 'package:scrapz/models/recipe_repository.dart';
 enum CardStatus { like, dislike }
 
 class CardProvider extends ChangeNotifier{
-  // List<String> _assetImages = [];
   List<Recipe> _recipes = [];
   bool _isDragging = false;
   Offset _position = Offset.zero;
   Size _screenSize = Size.zero;
   double _angle = 0;
 
-  // List<String> get assetImages => _assetImages;
   List<Recipe> get recipes => _recipes;
   bool get isDragging => _isDragging;
   Offset get position => _position;
@@ -57,9 +55,6 @@ class CardProvider extends ChangeNotifier{
       case CardStatus.dislike:
         dislike();
         break;
-      // case CardStatus.superLike:
-      //   superLike();
-      //   break;
       default:
         resetPosition();
     }
@@ -77,30 +72,18 @@ class CardProvider extends ChangeNotifier{
 
   void resetUsers() {
     _recipes = RecipeRepository.loadRecipe().reversed.toList();
-
-    // _assetImages = <String>[
-    //   'assets/cheesy_garlic_bread.jpg',
-    //   'assets/shrimp_curry_rice.jpg',
-    //   'assets/seafood_ramen.png',
-    // ].reversed.toList();
-
     notifyListeners();
   }
 
   CardStatus? getStatus() {
     final x = _position.dx;
-    // final y = _position.dy;
-    // final forceSuperLike = x.abs() < 20;
-    final delta = 100;
+    const delta = 100;
 
     if(x >= delta) {
       return CardStatus.like;
     } else if (x <= -delta) {
       return CardStatus.dislike;
     }
-    // else if(y <= -delta / 2 && forceSuperLike) {
-    //   return CardStatus.superLike;
-    // }
   }
 
   void like() {
@@ -119,17 +102,9 @@ class CardProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  // void superLike() async {
-  //   _angle = 0;
-  //   _position -= Offset(0, _screenSize.height);
-  //   _nextCard();
-  //
-  //   notifyListeners();
-  // }
-
   Future _nextCard() async {
     if(_recipes.isEmpty) return;
-    await Future.delayed(Duration(milliseconds: 200));
+    await Future.delayed(const Duration(milliseconds: 200));
     _recipes.removeLast();
     resetPosition();
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scrapz/explore_page.dart';
-import 'package:scrapz/shopping_list.dart';
+import 'package:scrapz/screens/explore_page.dart';
+import 'package:scrapz/screens/shopping_list.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
-import 'match_maker_homepage.dart';
+import 'screens/match_maker_homepage.dart';
 
 // 1
 class Home extends StatefulWidget {
@@ -18,10 +18,8 @@ class _HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
     // TODO: Replace with homepage
     Container(color: Colors.purple),
-    // TODO: Replace with Search/explore screen
     ExplorePage(),
     const MatchMakerHomepage(title: 'Match Maker'),
-    // TODO: Replace with Grocery List Screen
     ShoppingList(),
     // TODO: Replace with Profile Screen
     Container(color: Colors.yellow)

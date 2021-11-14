@@ -8,13 +8,11 @@ import 'package:scrapz/provider/card_provider.dart';
 
 class RecipeCard extends StatefulWidget {
   final Recipe recipe;
-  // final String assetImage;
   final bool isFront;
 
   const RecipeCard({
     Key? key,
     required this.recipe,
-    // required this.assetImage,
     required this.isFront,
   }) : super(key: key);
 
@@ -110,29 +108,6 @@ class _RecipeCardState extends State<RecipeCard> {
         },
       );
 
-  // Widget buildCard() => ClipRRect(
-  //   borderRadius: BorderRadius.circular(20),
-  //   child: Container(
-  //           decoration: BoxDecoration(
-  //             image: DecorationImage(
-  //               image: AssetImage(widget.assetImage),
-  //               fit: BoxFit.cover,
-  //               alignment: const Alignment(-0.3, 0),
-  //             ),
-  //           ),
-  //     child: Container(
-  //       padding: const EdgeInsets.all(20),
-  //       child: Column(
-  //         children: [
-  //           const Spacer(),
-  //           buildName(),
-  //         ],
-  //       ),
-  //     ),
-  //         ),
-  //
-  // );
-
   Widget buildName() => Row(
     children: [
       Text(
@@ -154,16 +129,3 @@ class _RecipeCardState extends State<RecipeCard> {
     ],
   );
 }
-// child: Column(
-//   children: [
-//     Row(
-//       children: const [
-//         Text('Icon'),
-//         Text('Name'),
-//       ],
-//     ),
-//     const Text('Cheesy Garlic Bread'),
-//     const Text('15 mins'),
-//     const Image(image: AssetImage('assets/cheesy_garlic_bread.jpg'))
-//   ],
-// ),
