@@ -3,13 +3,15 @@ import 'package:scrapz/themes/scrapz_theme.dart';
 import 'package:scrapz/tinder_homepage.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/provider/card_provider.dart';
+import 'themes/scrapz_theme_cl.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  final theme = ScrapzTheme.light();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final theme = ScrapzTheme.light();
   String? _chosenValue1;
   String? _chosenValue2;
   String? _chosenValue3;
@@ -44,13 +47,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+            widget.title,
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Find me a meal'),
+            Text(
+                'Find me a meal',
+              style: theme.textTheme.headline1,
+            ),
             DropdownButton<String>(
               focusColor: Colors.white,
               value: _chosenValue1,
@@ -186,9 +194,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => TinderHomepage()),
                 );
               },
-              child: const Text('Gimme food'),
+              child: const Text('Gimme food', style: TextStyle(
+                color: Colors.white,
+              )),
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.black38),
+                backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFE6C19)),
               ),
             ),
           ],

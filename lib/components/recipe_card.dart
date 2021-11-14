@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/provider/card_provider.dart';
 
@@ -83,7 +84,38 @@ class _RecipeCardState extends State<RecipeCard> {
                 alignment: const Alignment(-0.3, 0),
               ),
             ),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const Spacer(),
+            buildName(),
+          ],
+        ),
+      ),
           ),
+
+  );
+
+  Widget buildName() => Row(
+    children: const [
+      Text(
+        'Cheesy Garlic Bread',
+        style: TextStyle(
+          fontSize: 32,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      SizedBox(width: 16),
+      // Text(
+      //   '15 minutes',
+      //   style: TextStyle(
+      //     fontSize: 15,
+      //     color: Colors.white,
+      //   ),
+      // )
+    ],
   );
 }
 // child: Column(

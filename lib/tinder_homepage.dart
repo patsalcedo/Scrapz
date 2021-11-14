@@ -27,7 +27,17 @@ class _TinderHomepageState extends State<TinderHomepage> {
     final provider = Provider.of<CardProvider>(context);
     final assetImages = provider.assetImages;
 
-    return Stack(
+    return assetImages.isEmpty
+    ? Center(
+      child: ElevatedButton(
+        child: Text('Restart'),
+        onPressed: () {
+          final provider =
+              Provider.of<CardProvider>(context, listen: false);
+          provider.resetUsers();
+        },
+      ))
+    : Stack(
       children: assetImages
       .map((assetImage) => RecipeCard(
           assetImage: assetImage,
