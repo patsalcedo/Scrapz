@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scrapz/explore_page.dart';
+import 'package:scrapz/shopping_list.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
 import 'match_maker_homepage.dart';
 
@@ -17,10 +19,10 @@ class _HomeState extends State<Home> {
     // TODO: Replace with homepage
     Container(color: Colors.purple),
     // TODO: Replace with Search/explore screen
-    Container(color: Colors.green),
+    ExplorePage(),
     const MatchMakerHomepage(title: 'Match Maker'),
     // TODO: Replace with Grocery List Screen
-    Container(color: Colors.blue),
+    ShoppingList(),
     // TODO: Replace with Profile Screen
     Container(color: Colors.yellow)
   ];
