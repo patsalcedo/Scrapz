@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:scrapz/components/recipe_card.dart';
 import 'package:scrapz/provider/card_provider.dart';
 
-class TinderHomepage extends StatefulWidget {
+class MatchMaking extends StatefulWidget {
   @override
-  _TinderHomepageState createState() => _TinderHomepageState();
+  _MatchMakingState createState() => _MatchMakingState();
 }
 
-class _TinderHomepageState extends State<TinderHomepage> {
+class _MatchMakingState extends State<MatchMaking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +25,10 @@ class _TinderHomepageState extends State<TinderHomepage> {
 
   Widget buildCards() {
     final provider = Provider.of<CardProvider>(context);
-    final assetImages = provider.assetImages;
+    // final assetImages = provider.assetImages;
+    final recipes = provider.recipes;
 
-    return assetImages.isEmpty
+    return recipes.isEmpty
     ? Center(
       child: ElevatedButton(
         child: Text('Restart'),
@@ -37,12 +38,28 @@ class _TinderHomepageState extends State<TinderHomepage> {
           provider.resetUsers();
         },
       ))
+    // : Stack(
+    //   children: recipes
+    //   .map((assetImage) => RecipeCard(
+    //       assetImage: assetImage,
+    //       isFront: assetImages.last == assetImage))
+    //   .toList(),
+    // );
     : Stack(
-      children: assetImages
-      .map((assetImage) => RecipeCard(
-          assetImage: assetImage,
-          isFront: assetImages.last == assetImage))
-      .toList(),
+      children: recipes
+          .map((recipe) => Column(
+        children: [
+          const SizedBox(height: 16),
+          Expanded(
+              child: RecipeCard(
+                recipe: recipe,
+                isFront: recipes.last == recipe,
+              )),
+          const SizedBox(height: 16),
+          // buildButtons(),
+        ],
+      ))
+          .toList(),
     );
   }
 

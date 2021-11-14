@@ -3,15 +3,18 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scrapz/models/recipe.dart';
 import 'package:scrapz/provider/card_provider.dart';
 
 class RecipeCard extends StatefulWidget {
-  final String assetImage;
+  final Recipe recipe;
+  // final String assetImage;
   final bool isFront;
 
   const RecipeCard({
     Key? key,
-    required this.assetImage,
+    required this.recipe,
+    // required this.assetImage,
     required this.isFront,
   }) : super(key: key);
 
@@ -36,6 +39,39 @@ class _RecipeCardState extends State<RecipeCard> {
   @override
   Widget build(BuildContext context) => SizedBox.expand(
     child: widget.isFront ? buildFrontCard() : buildCard(),
+  );
+
+  Widget buildCard() => ClipRRect(
+    borderRadius: BorderRadius.circular(20),
+    child: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(widget.recipe.assetImage),
+          fit: BoxFit.cover,
+          alignment: const Alignment(-0.3, 0),
+        ),
+      ),
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.transparent, Colors.black],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.7, 1],
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const Spacer(),
+              buildName(),
+              const SizedBox(height: 8),
+            ],
+          ),
+        ),
+      ),
+    ),
   );
 
   Widget buildFrontCard() => GestureDetector(
@@ -74,47 +110,47 @@ class _RecipeCardState extends State<RecipeCard> {
         },
       );
 
-  Widget buildCard() => ClipRRect(
-    borderRadius: BorderRadius.circular(20),
-    child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(widget.assetImage),
-                fit: BoxFit.cover,
-                alignment: const Alignment(-0.3, 0),
-              ),
-            ),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const Spacer(),
-            buildName(),
-          ],
-        ),
-      ),
-          ),
-
-  );
+  // Widget buildCard() => ClipRRect(
+  //   borderRadius: BorderRadius.circular(20),
+  //   child: Container(
+  //           decoration: BoxDecoration(
+  //             image: DecorationImage(
+  //               image: AssetImage(widget.assetImage),
+  //               fit: BoxFit.cover,
+  //               alignment: const Alignment(-0.3, 0),
+  //             ),
+  //           ),
+  //     child: Container(
+  //       padding: const EdgeInsets.all(20),
+  //       child: Column(
+  //         children: [
+  //           const Spacer(),
+  //           buildName(),
+  //         ],
+  //       ),
+  //     ),
+  //         ),
+  //
+  // );
 
   Widget buildName() => Row(
-    children: const [
+    children: [
       Text(
-        'Cheesy Garlic Bread',
-        style: TextStyle(
-          fontSize: 32,
+        widget.recipe.title,
+        style: const TextStyle(
+          fontSize: 25,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),
-      SizedBox(width: 16),
-      // Text(
-      //   '15 minutes',
-      //   style: TextStyle(
-      //     fontSize: 15,
-      //     color: Colors.white,
-      //   ),
-      // )
+      const SizedBox(width: 16),
+      Text(
+        widget.recipe.duration,
+        style: const TextStyle(
+          fontSize: 12,
+          color: Colors.white,
+        ),
+      )
     ],
   );
 }

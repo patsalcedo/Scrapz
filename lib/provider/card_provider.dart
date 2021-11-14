@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:scrapz/models/recipe.dart';
+import 'package:scrapz/models/recipe_repository.dart';
 
 enum CardStatus { like, dislike }
 
 class CardProvider extends ChangeNotifier{
-  List<String> _assetImages = [];
+  // List<String> _assetImages = [];
+  List<Recipe> _recipes = [];
   bool _isDragging = false;
   Offset _position = Offset.zero;
   Size _screenSize = Size.zero;
   double _angle = 0;
 
-  List<String> get assetImages => _assetImages;
+  // List<String> get assetImages => _assetImages;
+  List<Recipe> get recipes => _recipes;
   bool get isDragging => _isDragging;
   Offset get position => _position;
   double get angle => _angle;
@@ -72,11 +76,13 @@ class CardProvider extends ChangeNotifier{
   }
 
   void resetUsers() {
-    _assetImages = <String>[
-      'assets/cheesy_garlic_bread.jpg',
-      'assets/shrimp_curry_rice.jpg',
-      'assets/seafood_ramen.png',
-    ].reversed.toList();
+    _recipes = RecipeRepository.loadRecipe().reversed.toList();
+
+    // _assetImages = <String>[
+    //   'assets/cheesy_garlic_bread.jpg',
+    //   'assets/shrimp_curry_rice.jpg',
+    //   'assets/seafood_ramen.png',
+    // ].reversed.toList();
 
     notifyListeners();
   }
@@ -122,9 +128,9 @@ class CardProvider extends ChangeNotifier{
   // }
 
   Future _nextCard() async {
-    if(_assetImages.isEmpty) return;
+    if(_recipes.isEmpty) return;
     await Future.delayed(Duration(milliseconds: 200));
-    _assetImages.removeLast();
+    _recipes.removeLast();
     resetPosition();
   }
 }

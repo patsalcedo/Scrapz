@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
-import 'package:scrapz/tinder_homepage.dart';
+import 'package:scrapz/match_making_page.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/provider/card_provider.dart';
 import 'themes/scrapz_theme_cl.dart';

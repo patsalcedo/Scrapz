@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
 import 'package:scrapz/themes/scrapz_theme_cl.dart';
-import 'package:scrapz/tinder_homepage.dart';
+import 'package:scrapz/match_making_page.dart';
 
 class MatchMakerHomepage extends StatefulWidget {
   const MatchMakerHomepage({Key? key, required this.title}) : super(key: key);
@@ -169,7 +169,7 @@ class _MatchMakerHomepage extends State<MatchMakerHomepage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TinderHomepage()),
+                  MaterialPageRoute(builder: (context) => MatchMaking()),
                 );
               },
               child: const Text('Gimme food', style: TextStyle(

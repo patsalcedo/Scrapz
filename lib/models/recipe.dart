@@ -1,8 +1,8 @@
 class Recipe {
-  String title;
-  String duration;
-  String assetImage;
-  String description; // this may be expanded/changed to another class
+  final String title;
+  final String duration;
+  final String assetImage;
+  final String description; // this may be expanded/changed to another class
 
-  Recipe(this.title, this.duration, this.assetImage, this.description);
+  const Recipe({required this.title, required this.duration, required this.assetImage, required this.description});
 }
