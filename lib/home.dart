@@ -14,6 +14,8 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
+    // TODO: Replace with homepage
+    Container(color: Colors.purple),
     // TODO: Replace with Search/explore screen
     Container(color: Colors.green),
     const MatchMakerHomepage(title: 'Match Maker'),
@@ -35,7 +37,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Homepage',
+          'Scrapz',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
@@ -46,6 +48,12 @@ class _HomeState extends State<Home> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined,
+              color: scrapzOrange,
+            ),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.explore_outlined,
               color: scrapzOrange,
