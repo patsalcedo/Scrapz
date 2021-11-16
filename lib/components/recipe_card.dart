@@ -50,27 +50,27 @@ class _RecipeCardState extends State<RecipeCard> {
         ),
       ),
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.transparent, Colors.black],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.7, 1],
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.black, Colors.transparent],
+              stops: [0.0, 0.2],
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomCenter,
+            ),
           ),
-        ),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              const Spacer(),
-              buildName(),
-              const SizedBox(height: 8),
-            ],
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                // const Spacer(),
+                buildName(),
+                const SizedBox(height: 8),
+              ],
+            ),
           ),
         ),
       ),
-    ),
-  );
+    );
 
   Widget buildFrontCard() => GestureDetector(
       child: LayoutBuilder(
@@ -113,7 +113,7 @@ class _RecipeCardState extends State<RecipeCard> {
       Text(
         widget.recipe.title,
         style: const TextStyle(
-          fontSize: 25,
+          fontSize: 22,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),

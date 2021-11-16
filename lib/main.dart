@@ -3,7 +3,7 @@ import 'package:scrapz/themes/scrapz_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/provider/card_provider.dart';
 import 'themes/scrapz_theme_cl.dart';
-import 'home.dart';
+import 'hub.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       create: (context) => CardProvider(),
       child: MaterialApp(
         title: 'Scrapz',
-        home: const Home(),
+        home: const Hub(),
         theme: _kScrapzTheme,
       ),
     );

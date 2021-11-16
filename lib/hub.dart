@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:scrapz/screens/explore_page.dart';
+import 'package:scrapz/screens/homepage.dart';
 import 'package:scrapz/screens/shopping_list.dart';
 import 'package:scrapz/themes/scrapz_theme.dart';
+import 'components/appbar.dart';
 import 'screens/match_maker_homepage.dart';
 
 // 1
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Hub extends StatefulWidget {
+  const Hub({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _HubState createState() => _HubState();
 }
 
-class _HomeState extends State<Home> {
+class _HubState extends State<Hub> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    // TODO: Replace with homepage
-    Container(color: Colors.purple),
+    HomePage(),
     ExplorePage(),
-    const MatchMakerHomepage(title: 'Match Maker'),
+    MatchMakerHomepage(title: 'Match Maker'),
     ShoppingList(),
     // TODO: Replace with Profile Screen
     Container(color: Colors.yellow)
@@ -35,12 +36,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Scrapz',
-          style: Theme.of(context).textTheme.headline6,
-        ),
-      ),
+      appBar: CustomAppBar(title: 'Scrapz'),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor:
