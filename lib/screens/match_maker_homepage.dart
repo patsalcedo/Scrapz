@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scrapz/components/match_dropdown.dart';
 import 'package:scrapz/themes/scrapz_theme_cl.dart';
 import 'package:scrapz/screens/match_making_page.dart';
 
@@ -12,11 +13,29 @@ class MatchMakerHomepage extends StatefulWidget {
 }
 
 class _MatchMakerHomepage extends State<MatchMakerHomepage> {
-  final theme = ScrapzTheme.dark();
-  String? _chosenValue1;
-  String? _chosenValue2;
-  String? _chosenValue3;
-  String? _chosenValue4;
+  List<String> duration = [
+    '< 15 minutes',
+    '30 minutes max',
+    '1 hour max',
+    '2 hours max'];
+
+  List<String> ingredients = [
+  'Eggs',
+  'Bread',
+  'Rice',
+  'Pasta'];
+
+  List<String> appliances = [
+  'Oven',
+  'Cooktop',
+  'Rice cooker',
+  'Slow cooker'];
+
+  List<String> diet = [
+  'Vegan',
+  'Vegetarian',
+  'Keto',
+  'Paleo'];
 
   @override
   Widget build(BuildContext context) {
@@ -30,133 +49,21 @@ class _MatchMakerHomepage extends State<MatchMakerHomepage> {
               'Find me a meal',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32.0),
             ),
-            DropdownButton<String>(
-              focusColor: Colors.white,
-              value: _chosenValue1,
-              style: TextStyle(color: Colors.white),
-              iconEnabledColor: Colors.black,
-              items: <String>[
-                '< 15 minutes',
-                '30 minutes max',
-                '1 hour max',
-                '2 hours max',
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                );
-              }).toList(),
-              hint: const Text(
-                'Time',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500),
-              ),
-              onChanged: (String? value) {
-                setState(() {
-                  _chosenValue1 = value;
-                });
-              },
+            MatchDropdown(
+                items: duration,
+              hint: 'Time',
             ),
-            DropdownButton<String>(
-              focusColor: Colors.white,
-              value: _chosenValue2,
-              style: const TextStyle(color: Colors.white),
-              iconEnabledColor: Colors.black,
-              items: <String>[
-                'Eggs',
-                'Bread',
-                'Rice',
-                'Pasta',
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                );
-              }).toList(),
-              hint: const Text(
-                'Ingredients',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500),
-              ),
-              onChanged: (String? value) {
-                setState(() {
-                  _chosenValue2 = value;
-                });
-              },
+            MatchDropdown(
+              items: ingredients,
+              hint: 'Ingredients',
             ),
-            DropdownButton<String>(
-              focusColor: Colors.white,
-              value: _chosenValue3,
-              style: const TextStyle(color: Colors.white),
-              iconEnabledColor: Colors.black,
-              items: <String>[
-                'Oven',
-                'Cooktop',
-                'Rice cooker',
-                'Slow cooker',
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                );
-              }).toList(),
-              hint: const Text(
-                'Appliances',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500),
-              ),
-              onChanged: (String? value) {
-                setState(() {
-                  _chosenValue3 = value;
-                });
-              },
+            MatchDropdown(
+              items: appliances,
+              hint: 'Appliances',
             ),
-            DropdownButton<String>(
-              focusColor: Colors.white,
-              value: _chosenValue4,
-              style: const TextStyle(color: Colors.white),
-              iconEnabledColor: Colors.black,
-              items: <String>[
-                'Vegan',
-                'Vegetarian',
-                'Keto',
-                'Paleo',
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                );
-              }).toList(),
-              hint: const Text(
-                'Diet Type',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500),
-              ),
-              onChanged: (String? value) {
-                setState(() {
-                  _chosenValue4 = value;
-                });
-              },
+            MatchDropdown(
+              items: diet,
+              hint: 'Diet Type',
             ),
             TextButton(
               onPressed: () {
