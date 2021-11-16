@@ -30,7 +30,6 @@ class _HomeCardState extends State<HomeCard> {
                 imageRadius: 28,
               ),
               const SizedBox(width: 5),
-              // Person text
               Text(
                 widget.name,
               ),

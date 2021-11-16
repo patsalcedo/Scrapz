@@ -12,11 +12,9 @@ class CircleImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 3
     return CircleAvatar(
       backgroundColor: Colors.white,
       radius: imageRadius,
-      // 4
       child: CircleAvatar(
         radius: imageRadius - 5,
         backgroundImage: imageProvider,
