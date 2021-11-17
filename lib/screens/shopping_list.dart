@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scrapz/themes/scrapz_theme_cl.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class ShoppingList extends StatefulWidget {
@@ -18,10 +19,7 @@ class _ShoppingListState extends State<ShoppingList> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Text('My Shopping List',
-                style: TextStyle(
-                    color: Colors.grey[800],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30)),
+                style: ScrapzTheme.lightTextTheme.headline1),
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),

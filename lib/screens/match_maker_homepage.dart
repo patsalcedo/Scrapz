@@ -45,9 +45,9 @@ class _MatchMakerHomepage extends State<MatchMakerHomepage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'Find me a meal',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32.0),
+              style: ScrapzTheme.lightTextTheme.headline1,
             ),
             MatchDropdown(
                 items: duration,
@@ -72,9 +72,10 @@ class _MatchMakerHomepage extends State<MatchMakerHomepage> {
                   MaterialPageRoute(builder: (context) => MatchMaking()),
                 );
               },
-              child: const Text('Gimme food', style: TextStyle(
-                color: Colors.white,
-              )),
+              child:
+              Text(
+                  'Gimme food',
+                  style: ScrapzTheme.lightTextTheme.button),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFE6C19)),
               ),

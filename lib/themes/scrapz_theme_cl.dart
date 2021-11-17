@@ -4,56 +4,66 @@ import 'package:google_fonts/google_fonts.dart';
 class ScrapzTheme {
   // 1
   static TextTheme lightTextTheme = TextTheme(
-    bodyText1: GoogleFonts.openSans(
+    bodyText1: GoogleFonts.poppins(
       fontSize: 14.0,
       fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
-    headline1: GoogleFonts.openSans(
+    bodyText2: GoogleFonts.poppins(
+      fontSize: 10.0,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey,
+    ),
+    headline1: GoogleFonts.poppins(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
-    headline2: GoogleFonts.openSans(
+    headline2: GoogleFonts.poppins(
       fontSize: 21.0,
       fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
-    headline3: GoogleFonts.openSans(
+    headline3: GoogleFonts.poppins(
       fontSize: 16.0,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       color: Colors.black,
     ),
-    headline6: GoogleFonts.openSans(
+    headline6: GoogleFonts.poppins(
       fontSize: 20.0,
       fontWeight: FontWeight.w600,
       color: Colors.black,
+    ),
+    button: GoogleFonts.poppins(
+      fontSize: 14.0,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
     ),
   );
 
   // 2
   static TextTheme darkTextTheme = TextTheme(
-    bodyText1: GoogleFonts.openSans(
+    bodyText1: GoogleFonts.poppins(
       fontSize: 14.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    headline1: GoogleFonts.openSans(
+    headline1: GoogleFonts.poppins(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
-    headline2: GoogleFonts.openSans(
+    headline2: GoogleFonts.poppins(
       fontSize: 21.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    headline3: GoogleFonts.openSans(
+    headline3: GoogleFonts.poppins(
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
-    headline6: GoogleFonts.openSans(
+    headline6: GoogleFonts.poppins(
       fontSize: 20.0,
       fontWeight: FontWeight.w600,
       color: Colors.white,

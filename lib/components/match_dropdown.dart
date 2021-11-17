@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scrapz/themes/scrapz_theme_cl.dart';
 
 class MatchDropdown extends StatefulWidget {
   final List<String> items;
@@ -30,16 +31,13 @@ class _MatchDropdownState extends State<MatchDropdown> {
           value: value,
           child: Text(
             value,
-            style: const TextStyle(color: Colors.black),
+            style: ScrapzTheme.lightTextTheme.headline3,
           ),
         );
       }).toList(),
       hint: Text(
         widget.hint,
-        style: const TextStyle(
-            color: Colors.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w500),
+        style: ScrapzTheme.lightTextTheme.headline3,
       ),
       onChanged: (String? value) {
         setState(() {
