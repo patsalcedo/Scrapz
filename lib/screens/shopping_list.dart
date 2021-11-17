@@ -10,44 +10,47 @@ class ShoppingList extends StatefulWidget {
 class _ShoppingListState extends State<ShoppingList> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: Text('My Shopping List',
-              style: TextStyle(
-                  color: Colors.grey[800],
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30)),
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Search...',
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: Text('My Shopping List',
+                style: TextStyle(
+                    color: Colors.grey[800],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30)),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Search...',
+              ),
             ),
           ),
-        ),
-        ToggleSwitch(
-          minWidth: 90.0,
-          cornerRadius: 20.0,
-          activeBgColors: const [[Colors.deepOrange], [Colors.deepOrange]],
-          activeFgColor: Colors.white,
-          inactiveBgColor: Colors.white,
-          inactiveFgColor: Colors.black,
-          initialLabelIndex: 1,
-          totalSwitches: 2,
-          borderWidth: 1.5,
-          borderColor: const [Colors.deepOrange],
-          labels: const ['Items', 'Completed'],
-          radiusStyle: true,
-          onToggle: (index) {
-            print('switched to: $index');
-          },
-        ),
-      ],
+          ToggleSwitch(
+            minWidth: 90.0,
+            cornerRadius: 20.0,
+            activeBgColors: const [[Colors.deepOrange], [Colors.deepOrange]],
+            activeFgColor: Colors.white,
+            inactiveBgColor: Colors.white,
+            inactiveFgColor: Colors.black,
+            initialLabelIndex: 1,
+            totalSwitches: 2,
+            borderWidth: 1.5,
+            borderColor: const [Colors.deepOrange],
+            labels: const ['Items', 'Completed'],
+            radiusStyle: true,
+            onToggle: (index) {
+              print('switched to: $index');
+            },
+          ),
+        ],
+      ),
     );
   }
 }
