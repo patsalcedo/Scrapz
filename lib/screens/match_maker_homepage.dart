@@ -40,47 +40,53 @@ class _MatchMakerHomepage extends State<MatchMakerHomepage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Find me a meal',
-              style: ScrapzTheme.lightTextTheme.headline1,
-            ),
-            MatchDropdown(
-                items: duration,
-              hint: 'Time',
-            ),
-            MatchDropdown(
-              items: ingredients,
-              hint: 'Ingredients',
-            ),
-            MatchDropdown(
-              items: appliances,
-              hint: 'Appliances',
-            ),
-            MatchDropdown(
-              items: diet,
-              hint: 'Diet Type',
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MatchMaking()),
-                );
-              },
-              child:
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
               Text(
-                  'Gimme food',
-                  style: ScrapzTheme.lightTextTheme.button),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFE6C19)),
+                'Find me a meal',
+                style: ScrapzTheme.lightTextTheme.headline1,
               ),
-            ),
-          ],
+              MatchDropdown(
+                  items: duration,
+                hint: '⏲     Time',
+              ),
+              MatchDropdown(
+                items: ingredients,
+                hint: '🍴    Ingredients',
+              ),
+              MatchDropdown(
+                items: appliances,
+                hint: '🥘    Appliances',
+              ),
+              MatchDropdown(
+                items: diet,
+                hint: '👩‍🍳     Diet Type',
+              ),
+              Container(
+                width: 400,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MatchMaking()),
+                    );
+                  },
+                  child:
+                  Text(
+                      'Gimme food',
+                      style: ScrapzTheme.lightTextTheme.button),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFFFE6C19)),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

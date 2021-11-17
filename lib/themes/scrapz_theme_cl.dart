@@ -27,7 +27,7 @@ class ScrapzTheme {
     headline3: GoogleFonts.poppins(
       fontSize: 16.0,
       fontWeight: FontWeight.w500,
-      color: Colors.black,
+      color: Colors.grey,
     ),
     headline6: GoogleFonts.poppins(
       fontSize: 20.0,

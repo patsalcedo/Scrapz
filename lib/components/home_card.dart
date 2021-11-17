@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scrapz/components/circle_image.dart';
+import 'package:scrapz/themes/scrapz_theme_cl.dart';
 
 class HomeCard extends StatefulWidget {
   final String name;
   final String profileImg;
+  final String assetImg;
+  final String recipeName;
 
   const HomeCard({
     Key? key,
     required this.name,
     required this.profileImg,
+    required this.assetImg,
+    required this.recipeName,
   }) : super(key: key);
 
   @override
@@ -32,19 +37,25 @@ class _HomeCardState extends State<HomeCard> {
               const SizedBox(width: 5),
               Text(
                 widget.name,
+                style: ScrapzTheme.lightTextTheme.headline3,
               ),
-              const SizedBox(width: 120),
+              const Expanded(child: SizedBox(width: 80)),
               Text(
-                '5 mins ago',
+                '⏲ 5 mins',
+                style: ScrapzTheme.lightTextTheme.bodyText2,
               ),
             ],
           ),
-          Text(
-            'Tteokbokki',
+          Align(
+            alignment: Alignment(-0.7, 0.6),
+            child: Text(
+              widget.recipeName,
+              style: ScrapzTheme.lightTextTheme.headline2,
+            ),
           ),
           const SizedBox(height: 10),
           Container(
-            height: 300,
+            height: 180,
             width: 300,
             decoration: BoxDecoration(
               color: Colors.deepOrange,
@@ -58,7 +69,8 @@ class _HomeCardState extends State<HomeCard> {
                 ),
               ],
               image: DecorationImage(
-                image: AssetImage('assets/food/tteokbokki.jpg'),
+                fit: BoxFit.cover,
+                image: AssetImage(widget.assetImg),
               ),
             ),
           ),

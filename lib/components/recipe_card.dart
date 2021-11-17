@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:scrapz/models/recipe.dart';
 import 'package:scrapz/provider/card_provider.dart';
@@ -108,17 +109,17 @@ class _RecipeCardState extends State<RecipeCard> {
         },
       );
 
-  Widget buildName() => Row(
+  Widget buildName() => Column(
     children: [
       Text(
-        widget.recipe.title,
-        style: const TextStyle(
-          fontSize: 22,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      const SizedBox(width: 16),
+            widget.recipe.title,
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(width: 16),
       Text(
         widget.recipe.duration,
         style: const TextStyle(
