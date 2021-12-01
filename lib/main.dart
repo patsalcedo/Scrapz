@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => CardProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Scrapz',
         home: const Hub(),
         theme: _kScrapzTheme,
