@@ -74,9 +74,39 @@ class _HomeCardState extends State<HomeCard> {
               ),
             ),
           ),
+          const SizedBox(height: 10),
           Row(
-            // Icon and number combo
-            // text date posted
+            children: const <Widget>[
+              const SizedBox(width: 40),
+              Text(
+                "300",
+                style: TextStyle(fontSize: 14, color: Colors.black54),
+              ),
+              Icon(
+                Icons.favorite_border_outlined,
+                color: Colors.black54,
+                size: 20.0,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+              Text(
+                "2",
+                style: TextStyle(fontSize: 14, color: Colors.black54),
+              ),
+              Icon(
+                Icons.sms_outlined,
+                color: Colors.black54,
+                size: 20.0,
+              ),
+              Text(
+                "18",
+                style: TextStyle(fontSize: 14, color: Colors.black54),
+              ),
+              Icon(
+                Icons.bookmark_border_outlined,
+                color: Colors.black54,
+                size: 20.0,
+              ),
+            ],
           ),
         ],
       ),
