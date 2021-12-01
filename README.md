@@ -13,3 +13,7 @@ Scrapz is a venture created by some talented people that are finalists for the A
 Scrapz is an application created for students to enhance the learning experience of cooking and
 shopping for groceries (as this is usually the first time they are doing these activities outside
 their parents' home!)
+
+## Progress
+
+Link to current state of the app (1/12/21): https://youtu.be/GinUbtDKQNI
